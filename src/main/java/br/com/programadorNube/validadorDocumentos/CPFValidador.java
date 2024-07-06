@@ -19,20 +19,22 @@ public class CPFValidador {
         calculaSomaDasParcelas(10,digitos);
         calculaModulo();
         digito11Validado = defineDigitoVerificador();
+        System.out.println("penultimo digito validado: " + digito10Validado);
+        System.out.println("ultimo digito: "+ digito11Validado);
 
         return (digito10Validado.equals(penultimoDigito) && digito11Validado.equals(ultimoDigito));
     }
 
     private void calculaModulo() {
-        moduloSomaPorOnze = somaDigitosMultiplicadoPorPeso %11;
+        moduloSomaPorOnze = 11 - (somaDigitosMultiplicadoPorPeso %11);
     }
 
     private Integer defineDigitoVerificador() {
-        Integer digito = 0;
-        if (!(moduloSomaPorOnze.equals(10) || moduloSomaPorOnze.equals(11))){
-            return digito = moduloSomaPorOnze;
+
+        if (moduloSomaPorOnze.equals(10) || moduloSomaPorOnze.equals(11)){
+            return 0;
         }
-        return digito = 0;
+        return moduloSomaPorOnze;
     }
 
     private void calculaSomaDasParcelas(Integer quantidadeDeDigitos, List<Integer> digitos) {
@@ -44,7 +46,7 @@ public class CPFValidador {
             Integer digito = digitos.get(i);
             somaDigitosMultiplicadoPorPeso += digito * peso;
             peso--;
-//            System.out.println(somaDigitosMultiplicadoPorPeso);
+
         }
     }
 }
