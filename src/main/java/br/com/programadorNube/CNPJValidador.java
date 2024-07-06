@@ -12,7 +12,8 @@ public class CNPJValidador {
     private final Utils utils = new Utils();
 
     public boolean isValidCnpj(String cnpj) {
-        List<Integer> digitos = utils.converteStringToListInteger(cnpj);
+        String cnpjSemPontuacao = utils.removePontuacao(cnpj);
+        List<Integer> digitos = utils.converteStringToListInteger(cnpjSemPontuacao);
         Integer ultimoDigito = digitos.get(13);
         Integer penultimoDigito = digitos.get(12);
         Integer digito13Validado;

@@ -8,7 +8,8 @@ public class CPFValidador {
     private final Utils utils = new Utils();
 
     public boolean isValidCpf(String cpf) {
-        List<Integer> digitos = utils.converteStringToListInteger(cpf);
+        String cpfSemPontuacao = utils.removePontuacao(cpf);
+        List<Integer> digitos = utils.converteStringToListInteger(cpfSemPontuacao);
         Integer ultimoDigito = digitos.get(10);
         Integer penultimoDigito = digitos.get(9);
         Integer digito11Validado;
@@ -19,8 +20,6 @@ public class CPFValidador {
         calculaSomaDasParcelas(10,digitos);
         calculaModulo();
         digito11Validado = defineDigitoVerificador();
-        System.out.println("penultimo digito validado: " + digito10Validado);
-        System.out.println("ultimo digito: "+ digito11Validado);
 
         return (digito10Validado.equals(penultimoDigito) && digito11Validado.equals(ultimoDigito));
     }

@@ -7,7 +7,7 @@ public class Main {
         String cpf = "74434928040";
         String cpfComPontuacoa = "164.858.400-44";
         CPFValidador cpfValidador = new CPFValidador();
-        System.out.println("mandei um cpf valido "+cpfValidador.isValidCpf(cpf));
+        System.out.println("mandei um cpf valido "+cpfValidador.isValidCpf(cpfComPontuacoa));
 
 
     }

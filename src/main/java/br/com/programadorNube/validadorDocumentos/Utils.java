@@ -25,7 +25,8 @@ public class Utils {
         return false;
     }
     public String removePontuacao(String documento) {
-        return documento.replaceAll("\\.", "").replaceAll("-", "").replaceAll("/", "");
+        return documento.replaceAll("[^0-9]", "");
+        //replaceAll("\\.", "").replaceAll("-", "").replaceAll("/", "");
     }
 
     public List<Integer> converteStringToListInteger(String s) {
